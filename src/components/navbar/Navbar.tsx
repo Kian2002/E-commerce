@@ -13,7 +13,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link className={styles["navbar__list__item"]} to="store">
+          <Link className={styles["navbar__list__item"]} to="/store">
             Store
           </Link>
         </li>
