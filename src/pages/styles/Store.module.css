@@ -1,0 +1,38 @@
+.store {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    animation: fade 3s, slideIn 0.5s ease-in-out;
+}
+
+.store> :first-child {
+    width: 270px;
+    padding: 4rem;
+}
+
+.store> :last-child {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 4rem;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
