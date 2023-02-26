@@ -6,13 +6,10 @@ import styles from "./styles/Store.module.css";
 
 const Store = () => {
   return (
-    <>
-      <Navbar />
-      <div className={styles["store"]}>
-        <Sidebar />
-        <StoreMain />
-      </div>
-    </>
+    <div className={styles["store"]}>
+      <Sidebar />
+      <StoreMain />
+    </div>
   );
 };
 

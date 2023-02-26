@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <>
       <div className={styles["bg-img"]} />
-      <Navbar />
       <Hero />
     </>
   );
