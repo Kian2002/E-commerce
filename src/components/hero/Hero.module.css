@@ -9,6 +9,7 @@
     color: #FFF;
     border-radius: 50px;
     backdrop-filter: blur(4px);
+    margin-top: 10rem;
 }
 
 .hero__heading {
