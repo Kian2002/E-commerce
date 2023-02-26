@@ -1,16 +1,16 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
-import { Link } from "react-router-dom";
+import Sidebar from "../components/sidebar/Sidebar";
+import StoreMain from "../components/main/StoreMain";
 
 const Store = () => {
-  const itemId = 1;
   return (
     <>
       <Navbar />
-      <h1>Store</h1>
-      <p>
-        <Link to={`item/${itemId}`}>Item number {itemId}</Link>
-      </p>
+      <div>
+        <Sidebar />
+        <StoreMain />
+      </div>
     </>
   );
 };
