@@ -1,27 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Games } from "../../data";
 
-const StoreMain = () => {
-  const itemId = 1;
+interface Props {
+  games: Games[];
+}
+
+const StoreMain: React.FC<Props> = ({ games }: Props) => {
   return (
     <div>
-      StoreMain
-      <p>
-        <Link to={`item/${itemId}`}>
-          Item number {itemId} [will be a component] Sidebar Lorem ipsum dolor
-          sit amet consectetur, adipisicing elit. Tenetur quas obcaecati illo
-          corporis officiis nobis delectus incidunt odio mlorem Lorem ipsum
-          dolor sit amet consectetur adipisicing elit. Eum perferendis
-          praesentium molestias, incidunt eligendi velit ullam repellat
-          doloremque quaerat architecto amet unde, rerum enim. Pariatur a cum
-          rerum voluptatibus repellendus? Lorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Cum esse illo mollitia perferendis,
-          quae sed nihil ipsa. Laborum, ea, qui consequatur adipisci ipsam ad
-          distinctio voluptatem animi, similique exercitationem explicabo!
-          aiores esse nulla reiciendis sed, cupiditate commodi suscipit adipisci
-          excepturi ratione cum.
-        </Link>
-      </p>
+      <div>
+        <h1>SOME TITLE</h1>
+        <h3>SUBTITLE</h3>
+      </div>
+
+      <div>SOME FILTERS</div>
+
+      <div>
+        {games.map((game) => (
+          <Link to={`/store/item/${game.id}`} key={game.id}>
+            <div>
+              <img src={game.background_image} alt="" />
+              <div>
+                <h3>{game.platforms}</h3>
+                <h3>{game.price}</h3>
+              </div>
+              <h3>{game.name}</h3>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
