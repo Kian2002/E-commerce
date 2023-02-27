@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { SetStateAction, Dispatch } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
 import StoreMain from "../components/main/StoreMain";
@@ -8,9 +8,10 @@ import { Games } from "../data";
 
 interface Props {
   games: Games[];
+  setGames: Dispatch<SetStateAction<Games[]>>;
 }
 
-const Store: React.FC<Props> = ({ games }: Props) => {
+const Store: React.FC<Props> = ({ games, setGames }) => {
   return (
     <motion.div
       className={styles["store"]}
@@ -26,7 +27,7 @@ const Store: React.FC<Props> = ({ games }: Props) => {
         transition: { y: { type: "tween", duration: 0.4, bounce: 0.3 } },
       }}
     >
-      <Sidebar />
+      <Sidebar games={games} setGames={setGames} />
       <StoreMain games={games} />
     </motion.div>
   );

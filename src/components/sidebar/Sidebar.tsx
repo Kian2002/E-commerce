@@ -1,40 +1,57 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import styles from "./Sidebar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { Games } from "../../data";
+import { useEffect } from "react";
+import getData from "../../data";
 library.add(fab, fas);
 
-const Sidebar = () => {
+interface Props {
+  games: Games[];
+  setGames: Dispatch<SetStateAction<Games[]>>;
+}
+
+const Sidebar: React.FC<Props> = ({ games, setGames }) => {
+  const handleFilter = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    const text = e.currentTarget.textContent;
+    const filteredGames = games.filter((game) => {
+      return game.platforms.some((platform) => platform.platform.name === text);
+    });
+
+    setGames(filteredGames);
+  };
+
   return (
     <div className={styles["sidebar"]}>
       <div className={styles["sidebar__menu"]}>
         <h1 className={styles["sidebar__title"]}>Platforms</h1>
         <div className={styles["sidebar__list"]}>
-          <button className={styles["sidebar__item"]}>
+          <button className={styles["sidebar__item"]} onClick={handleFilter}>
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "windows"]} size="lg" />
             </span>
-            <span>Windows</span>
+            <span>PC</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button className={styles["sidebar__item"]} onClick={handleFilter}>
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "playstation"]} size="lg" />
             </span>
-            <span>Playstation</span>
+            <span>PlayStation 4</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button className={styles["sidebar__item"]} onClick={handleFilter}>
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "xbox"]} size="lg" />
             </span>
-            <span>Xbox</span>
+            <span>Xbox One</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button className={styles["sidebar__item"]} onClick={handleFilter}>
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fas", "gamepad"]} size="lg" />
             </span>
-            <span>Switch</span>
+            <span>Nintendo Switch</span>
           </button>
         </div>
       </div>
