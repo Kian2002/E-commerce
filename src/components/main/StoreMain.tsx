@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Games } from "../../data";
+import styles from "./StoreMain.module.css";
 
 interface Props {
   games: Games[];
@@ -16,16 +17,26 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
 
       <div>SOME FILTERS</div>
 
-      <div>
+      <div className={styles["card-container"]}>
         {games.map((game) => (
-          <Link to={`/store/item/${game.id}`} key={game.id}>
-            <div>
-              <img src={game.background_image} alt="" />
-              <div>
-                <h3>{game.platforms}</h3>
-                <h3>{game.price}</h3>
+          <Link
+            to={`/store/item/${game.id}`}
+            key={game.id}
+            className={styles["link"]}
+          >
+            <div className={styles["card"]}>
+              <img
+                src={game.background_image}
+                alt=""
+                className={styles["card__img"]}
+              />
+              <div className={styles["card__info__wrapper"]}>
+                <div className={styles["card__info"]}>
+                  <h3>platforms</h3>
+                  <h3>${game.price}</h3>
+                </div>
+                <h3 className={styles["card__name"]}>{game.name}</h3>
               </div>
-              <h3>{game.name}</h3>
             </div>
           </Link>
         ))}

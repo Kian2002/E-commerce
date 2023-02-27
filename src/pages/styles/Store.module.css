@@ -2,16 +2,18 @@
     display: flex;
     height: 100%;
     width: 100%;
+    padding: 0 2rem;
 }
 
 .store> :first-child {
-    width: 270px;
-    padding: 4rem;
+    width: 200px;
+    margin-right: 2rem;
+    margin-top: 4rem;
 }
 
 .store> :last-child {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 4rem;
+    height: 100%;
 }

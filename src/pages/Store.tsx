@@ -1,24 +1,16 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Navbar from "../components/navbar/Navbar";
 import Sidebar from "../components/sidebar/Sidebar";
 import StoreMain from "../components/main/StoreMain";
 import styles from "./styles/Store.module.css";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import getData, { Games } from "../data";
+import { Games } from "../data";
 
-const Store = () => {
-  const initalState: Games[] = [];
-  const [games, setGames] = useState(initalState);
+interface Props {
+  games: Games[];
+}
 
-  useEffect(() => {
-    const fetchGames = async () => {
-      const games = await getData();
-      setGames(games);
-    };
-    fetchGames();
-  }, []);
-
+const Store: React.FC<Props> = ({ games }: Props) => {
   return (
     <motion.div
       className={styles["store"]}
