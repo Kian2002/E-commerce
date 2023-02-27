@@ -32,7 +32,7 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
               />
               <div className={styles["card__info__wrapper"]}>
                 <div className={styles["card__info"]}>
-                  <h3>platforms</h3>
+                  <button>Add To Cart +</button>
                   <h3>${game.price}</h3>
                 </div>
                 <h3 className={styles["card__name"]}>{game.name}</h3>
