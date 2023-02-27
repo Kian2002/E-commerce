@@ -4,8 +4,21 @@ import Sidebar from "../components/sidebar/Sidebar";
 import StoreMain from "../components/main/StoreMain";
 import styles from "./styles/Store.module.css";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import getData, { Games } from "../data";
 
 const Store = () => {
+  const initalState: Games[] = [];
+  const [games, setGames] = useState(initalState);
+
+  useEffect(() => {
+    const fetchGames = async () => {
+      const games = await getData();
+      setGames(games);
+    };
+    fetchGames();
+  }, []);
+
   return (
     <motion.div
       className={styles["store"]}
@@ -22,7 +35,7 @@ const Store = () => {
       }}
     >
       <Sidebar />
-      <StoreMain />
+      <StoreMain games={games} />
     </motion.div>
   );
 };
