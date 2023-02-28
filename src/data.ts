@@ -5,7 +5,7 @@ export type Games = {
   link: string;
   released: string;
   platforms: any[];
-  genres: string[];
+  genres: any[];
   developers: string[];
   publishers: string[];
   background_image: string;

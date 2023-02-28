@@ -1,24 +1,38 @@
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, MouseEvent } from "react";
 import styles from "./Sidebar.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { Games } from "../../data";
-import { useEffect } from "react";
-import getData from "../../data";
 library.add(fab, fas);
 
 interface Props {
-  games: Games[];
   setGames: Dispatch<SetStateAction<Games[]>>;
+  tempGames: Games[];
 }
 
-const Sidebar: React.FC<Props> = ({ games, setGames }) => {
-  const handleFilter = async (e: React.MouseEvent<HTMLButtonElement>) => {
+const Sidebar: React.FC<Props> = ({ setGames, tempGames }) => {
+  const handleFilterPlatform = async (e: MouseEvent<HTMLButtonElement>) => {
     const text = e.currentTarget.textContent;
-    const filteredGames = games.filter((game) => {
+
+    if (text === "Reset Filters") {
+      setGames(tempGames);
+      return;
+    }
+    let filteredGames: Games[] = [];
+    filteredGames = tempGames.filter((game) => {
       return game.platforms.some((platform) => platform.platform.name === text);
+    });
+
+    setGames(filteredGames);
+  };
+
+  const handleFilterGenre = (e: MouseEvent<HTMLButtonElement>) => {
+    const text = e.currentTarget.textContent;
+
+    const filteredGames = tempGames.filter((game) => {
+      return game.genres.some((genre) => genre.name === text);
     });
 
     setGames(filteredGames);
@@ -29,25 +43,46 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
       <div className={styles["sidebar__menu"]}>
         <h1 className={styles["sidebar__title"]}>Platforms</h1>
         <div className={styles["sidebar__list"]}>
-          <button className={styles["sidebar__item"]} onClick={handleFilter}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterPlatform}
+          >
+            <span className={styles["logo"]}>
+              <FontAwesomeIcon icon={["fas", "circle"]} color={"red"} />
+            </span>
+            <span>Reset Filters</span>
+          </button>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterPlatform}
+          >
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "windows"]} size="lg" />
             </span>
             <span>PC</span>
           </button>
-          <button className={styles["sidebar__item"]} onClick={handleFilter}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterPlatform}
+          >
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "playstation"]} size="lg" />
             </span>
             <span>PlayStation 4</span>
           </button>
-          <button className={styles["sidebar__item"]} onClick={handleFilter}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterPlatform}
+          >
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fab", "xbox"]} size="lg" />
             </span>
             <span>Xbox One</span>
           </button>
-          <button className={styles["sidebar__item"]} onClick={handleFilter}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterPlatform}
+          >
             <span className={styles["logo"]}>
               <FontAwesomeIcon icon={["fas", "gamepad"]} size="lg" />
             </span>
@@ -59,7 +94,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
       <div className={styles["sidebar__menu"]}>
         <h1 className={styles["sidebar__title"]}>Genres</h1>
         <div className={styles["sidebar__list"]}>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg"
@@ -67,7 +105,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>Action</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg"
@@ -75,7 +116,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>Adventure</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg"
@@ -83,7 +127,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>RPG</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/6bc/6bc79f5bc023b1e6938f6eaf9926f073.jpg"
@@ -91,7 +138,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>Strategy</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/a44/a444a7628bdb49b24d06a7672f805814.jpg"
@@ -99,7 +149,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>Simulation</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/8c7/8c77cb878b8cafe0b5ee5b21d488393b.jpg"
@@ -107,7 +160,10 @@ const Sidebar: React.FC<Props> = ({ games, setGames }) => {
             />
             <span>Sports</span>
           </button>
-          <button className={styles["sidebar__item"]}>
+          <button
+            className={styles["sidebar__item"]}
+            onClick={handleFilterGenre}
+          >
             <img
               className={styles["logo2"]}
               src="https://media.rawg.io/media/games/786/7863e587bac630de82fca50d799236a9.jpg"

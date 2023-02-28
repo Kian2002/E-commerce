@@ -33,6 +33,13 @@
     cursor: pointer;
 }
 
+.active {
+    scale: 1.1;
+    background-color: hsla(0, 0%, 100%, .1);
+    border-radius: .6rem;
+    padding: .5rem .8rem;
+}
+
 .logo {
     background-color: hsla(0, 0%, 100%, .1);
     padding: .5rem .8rem;
@@ -44,6 +51,10 @@
     height: 32px;
     -o-object-fit: cover;
     object-fit: cover;
+}
+
+.logo :hover {
+    scale: 1.1;
 }
 
 .logo2 {

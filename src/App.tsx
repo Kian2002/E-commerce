@@ -6,7 +6,7 @@ import Item from "./pages/Item";
 import ErrorPage from "./pages/ErrorPage";
 import Navbar from "./components/navbar/Navbar";
 import { useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import getData, { Games } from "./data";
 
@@ -15,11 +15,15 @@ function App() {
 
   const initalState: Games[] = [];
   const [games, setGames] = useState(initalState);
+  const [tempGames, setTempGames] = useState(initalState);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
+      console.log(data);
+
       setGames(data);
+      setTempGames(data);
     };
     fetchData();
   }, []);
@@ -32,7 +36,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/store"
-            element={<Store games={games} setGames={setGames} />}
+            element={
+              <Store games={games} setGames={setGames} tempGames={tempGames} />
+            }
           />
           <Route path="/store/item/:itemId" element={<Item />} />
           <Route path="*" element={<ErrorPage />} />
