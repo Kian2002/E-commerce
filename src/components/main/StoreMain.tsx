@@ -12,9 +12,9 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
     <div>
       <div>
         <h1 className={styles["title"]}>New and trending</h1>
-        <h3 className={styles["sub-title"]}>
+        <h2 className={styles["sub-title"]}>
           Based on plater counts and release date
-        </h3>
+        </h2>
       </div>
 
       <div className={styles["card-container"]}>
@@ -32,7 +32,9 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
               />
               <div className={styles["card__info__wrapper"]}>
                 <div className={styles["card__info"]}>
-                  <button>Add To Cart +</button>
+                  <button className={styles["card__info__button"]}>
+                    Add To Cart +
+                  </button>
                   <h3>${game.price}</h3>
                 </div>
                 <h3 className={styles["card__name"]}>{game.name}</h3>
