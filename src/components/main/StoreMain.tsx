@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Games } from "../../data";
 import styles from "./StoreMain.module.css";
+import { CartContext } from "../../context/CartContext";
 
 interface Props {
   games: Games[];
 }
 
 const StoreMain: React.FC<Props> = ({ games }: Props) => {
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div>
       <div>
@@ -32,7 +35,15 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
               />
               <div className={styles["card__info__wrapper"]}>
                 <div className={styles["card__info"]}>
-                  <button className={styles["card__info__button"]}>
+                  <button
+                    type="button"
+                    className={styles["card__info__button"]}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      addToCart(game);
+                    }}
+                  >
                     Add To Cart +
                   </button>
                   <h3>${game.price}</h3>
