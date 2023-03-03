@@ -4,6 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 2rem;
+    background-color: #121212;
 }
 
 .navbar__list {
@@ -19,7 +20,7 @@
     text-decoration: none;
     color: rgba(255, 255, 255, 0.87);
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 2rem;
 }
 
 .navbar__list__item:hover {
