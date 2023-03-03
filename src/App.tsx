@@ -16,14 +16,14 @@ function App() {
   const initalState: Games[] = [];
   const [games, setGames] = useState(initalState);
   const [tempGames, setTempGames] = useState(initalState);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await getData();
-      console.log(data);
-
       setGames(data);
       setTempGames(data);
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -37,7 +37,12 @@ function App() {
           <Route
             path="/store"
             element={
-              <Store games={games} setGames={setGames} tempGames={tempGames} />
+              <Store
+                games={games}
+                setGames={setGames}
+                tempGames={tempGames}
+                loading={loading}
+              />
             }
           />
           <Route path="/store/item/:itemId" element={<Item />} />

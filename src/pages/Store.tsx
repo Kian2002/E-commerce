@@ -9,9 +9,10 @@ interface Props {
   games: Games[];
   setGames: Dispatch<SetStateAction<Games[]>>;
   tempGames: Games[];
+  loading: boolean;
 }
 
-const Store: React.FC<Props> = ({ games, setGames, tempGames }) => {
+const Store: React.FC<Props> = ({ games, setGames, tempGames, loading }) => {
   return (
     <motion.div
       className={styles["store"]}
@@ -28,7 +29,7 @@ const Store: React.FC<Props> = ({ games, setGames, tempGames }) => {
       }}
     >
       <Sidebar setGames={setGames} tempGames={tempGames} />
-      <StoreMain games={games} />
+      {loading ? <h1>Loading...</h1> : <StoreMain games={games} />}
     </motion.div>
   );
 };
