@@ -11,11 +11,11 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
   return (
     <div>
       <div>
-        <h1>SOME TITLE</h1>
-        <h3>SUBTITLE</h3>
+        <h1 className={styles["title"]}>New and trending</h1>
+        <h3 className={styles["sub-title"]}>
+          Based on plater counts and release date
+        </h3>
       </div>
-
-      <div>SOME FILTERS</div>
 
       <div className={styles["card-container"]}>
         {games.map((game) => (
