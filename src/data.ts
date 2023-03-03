@@ -13,7 +13,7 @@ export type Games = {
 };
 
 const API_KEY = import.meta.env.VITE_API_KEY;
-const PAGE_NUMBER = Math.floor(Math.random() * 10);
+const PAGE_NUMBER = Math.ceil(Math.random()* 10);
 const API_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page=${PAGE_NUMBER}&page_size=40`;
 
 const getData = async () => {
