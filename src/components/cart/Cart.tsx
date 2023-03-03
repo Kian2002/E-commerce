@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Cart.module.css";
+import { CartContext } from "../../context/CartContext";
 
-const Cart: React.FC<{ onHandleCloseCart: () => void }> = (props) => {
-  const { onHandleCloseCart } = props;
+const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
+  onHandleCloseCart,
+}) => {
+  const { cart } = useContext(CartContext);
+
   return ReactDOM.createPortal(
     <div className={styles["backdrop"]} onClick={onHandleCloseCart}>
       <div
@@ -12,8 +16,9 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = (props) => {
       >
         <h1 className={styles["cart-heading"]}>No games added</h1>
         <div className={styles["cart-items"]}>
-          <p>item 1</p>
-          <p>item 2</p>
+          {cart.map((item) => {
+            return <h1 key={item.id}>{item.name}</h1>;
+          })}
         </div>
         <div className={styles["cart-footer"]}>
           <p className={styles["cart-footer__total"]}>Total</p>
