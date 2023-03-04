@@ -11,7 +11,13 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
   return ReactDOM.createPortal(
     <div className={styles["backdrop"]} onClick={onHandleCloseCart}>
       <div className={styles["cart-wrapper"]}>
-        <h1 className={styles["cart-heading"]}>No games added</h1>
+        <h1 className={styles["cart-heading"]}>
+          {cart.length === 0
+            ? "No Games Added"
+            : cart.length === 1
+            ? cart.length + " game"
+            : cart.length + " games"}
+        </h1>
         <div className={styles["cart-items"]}>
           {cart.map((item) => {
             return (
