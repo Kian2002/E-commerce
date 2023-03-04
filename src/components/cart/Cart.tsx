@@ -6,7 +6,7 @@ import { CartContext } from "../../context/CartContext";
 const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
   onHandleCloseCart,
 }) => {
-  const { cart } = useContext(CartContext);
+  const { cart, removeFromCart } = useContext(CartContext);
 
   const [total, setTotal] = useState(0);
 
@@ -39,7 +39,14 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
                 <h3>{item.name}</h3>
                 <div className={styles["cart-item__div"]}>
                   <p>${item.price}</p>
-                  <button>X</button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      removeFromCart(item);
+                    }}
+                  >
+                    X
+                  </button>
                 </div>
               </button>
             );
