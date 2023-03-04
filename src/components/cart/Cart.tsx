@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Cart.module.css";
 import { CartContext } from "../../context/CartContext";
@@ -7,6 +7,20 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
   onHandleCloseCart,
 }) => {
   const { cart } = useContext(CartContext);
+
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    cart.forEach((item) => {
+      setTotal((prevTotal) => {
+        return prevTotal + item.price;
+      });
+    });
+
+    return () => {
+      setTotal(0);
+    };
+  }, [cart]);
 
   return ReactDOM.createPortal(
     <div className={styles["backdrop"]} onClick={onHandleCloseCart}>
@@ -32,7 +46,7 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
           })}
         </div>
         <div className={styles["cart-footer"]}>
-          <p className={styles["cart-footer__total"]}>Total</p>
+          <p className={styles["cart-footer__total"]}>Total: {total}</p>
           <button
             className={styles["cart-footer__checkout"]}
             onClick={onHandleCloseCart}
