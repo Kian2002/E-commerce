@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Games } from "../../data";
 import styles from "./StoreMain.module.css";
 import { CartContext } from "../../context/CartContext";
@@ -10,6 +10,10 @@ interface Props {
 
 const StoreMain: React.FC<Props> = ({ games }: Props) => {
   const { cart, addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
+  const clickHandler = (game: Games) => {
+    navigate(`/store/item/${game.id}`);
+  };
 
   return (
     <div>
@@ -22,38 +26,37 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
 
       <div className={styles["card-container"]}>
         {games.map((game) => (
-          <Link
-            to={`/store/item/${game.id}`}
+          <div
+            className={styles["card"]}
             key={game.id}
-            className={styles["link"]}
+            onClick={() => {
+              clickHandler(game);
+            }}
           >
-            <div className={styles["card"]}>
-              <img
-                src={game.background_image}
-                alt=""
-                className={styles["card__img"]}
-              />
-              <div className={styles["card__info__wrapper"]}>
-                <div className={styles["card__info"]}>
-                  <button
-                    type="button"
-                    className={styles["card__info__button"]}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      addToCart(game);
-                    }}
-                  >
-                    {cart.find((item) => item.id === game.id)
-                      ? "Added"
-                      : "Add to cart +"}
-                  </button>
-                  <h3>${game.price}</h3>
-                </div>
-                <h3 className={styles["card__name"]}>{game.name}</h3>
-              </div>
+            <img
+              src={game.background_image}
+              alt=""
+              className={styles["card__img"]}
+            />
+
+            <div className={styles["card__info"]}>
+              <button
+                type="button"
+                className={styles["card__info__button"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  addToCart(game);
+                }}
+              >
+                {cart.find((item) => item.id === game.id)
+                  ? "Added"
+                  : "Add to cart +"}
+              </button>
+              <h3>${game.price}</h3>
             </div>
-          </Link>
+            <h2 className={styles["card__name"]}>{game.name}</h2>
+          </div>
         ))}
       </div>
     </div>
