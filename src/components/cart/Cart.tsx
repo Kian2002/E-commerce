@@ -14,7 +14,15 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
         <h1 className={styles["cart-heading"]}>No games added</h1>
         <div className={styles["cart-items"]}>
           {cart.map((item) => {
-            return <h1 key={item.id}>{item.name}</h1>;
+            return (
+              <button className={styles["cart-item"]} key={item.id}>
+                <h3>{item.name}</h3>
+                <div className={styles["cart-item__div"]}>
+                  <p>${item.price}</p>
+                  <button>X</button>
+                </div>
+              </button>
+            );
           })}
         </div>
         <div className={styles["cart-footer"]}>
