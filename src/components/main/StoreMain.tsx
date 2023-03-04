@@ -9,7 +9,7 @@ interface Props {
 }
 
 const StoreMain: React.FC<Props> = ({ games }: Props) => {
-  const { addToCart } = useContext(CartContext);
+  const { cart, addToCart } = useContext(CartContext);
 
   return (
     <div>
@@ -44,7 +44,9 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
                       addToCart(game);
                     }}
                   >
-                    Add To Cart +
+                    {cart.find((item) => item.id === game.id)
+                      ? "Added"
+                      : "Add to cart +"}
                   </button>
                   <h3>${game.price}</h3>
                 </div>
