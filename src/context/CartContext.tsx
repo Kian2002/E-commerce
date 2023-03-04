@@ -21,7 +21,11 @@ const CartProvider: React.FC<Props> = ({ children }) => {
   const [cart, setCart] = useState<Games[]>([]);
 
   const addToCart = (game: Games) => {
-    setCart([...cart, game]);
+    if (cart.find((item) => item.id === game.id)) {
+      return;
+    } else {
+      setCart([...cart, game]);
+    }
   };
 
   const removeFromCart = (game: Games) => {
