@@ -46,7 +46,7 @@ export type Games = {
   platforms: Platforms[];
   genres: Genres[];
   developers: Developers[];
-  publishers: string[];
+  publishers: Publishers[];
   background_image: string;
   short_screenshots: string[];
   description: string;
