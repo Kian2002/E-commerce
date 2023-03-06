@@ -45,7 +45,10 @@ function App() {
               />
             }
           />
-          <Route path="/store/item/:itemId" element={<Item games={games} />} />
+          <Route
+            path="/store/item/:gameId"
+            element={<Item games={games} setGames={setGames} />}
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AnimatePresence>
