@@ -37,6 +37,11 @@ type Genres = {
   slug: string
 }
 
+type Short_Screenshots = {
+  id: number
+  image: string
+}
+
 export type Games = {
   id: number;
   name: string;
@@ -48,7 +53,7 @@ export type Games = {
   developers: Developers[];
   publishers: Publishers[];
   background_image: string;
-  short_screenshots: string[];
+  short_screenshots: Short_Screenshots[];
   description: string;
 };
 
