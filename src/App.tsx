@@ -22,7 +22,7 @@ function App() {
       setGames(data);
       setTempGames(data);
     }
-  }, [data, isLoading]);
+  }, [isLoading]);
 
   return (
     <>
