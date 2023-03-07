@@ -9,24 +9,20 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import getData, { Games } from "./data";
+import { useQuery } from "react-query";
 
 function App() {
   const location = useLocation();
-
-  const initalState: Games[] = [];
-  const [games, setGames] = useState(initalState);
-  const [tempGames, setTempGames] = useState(initalState);
-  const [loading, setLoading] = useState(true);
+  const { data, isLoading } = useQuery("games", getData);
+  const [games, setGames] = useState<Games[]>([]);
+  const [tempGames, setTempGames] = useState<Games[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getData();
+    if (data) {
       setGames(data);
       setTempGames(data);
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+    }
+  }, [data, isLoading]);
 
   return (
     <>
@@ -41,7 +37,7 @@ function App() {
                 games={games}
                 setGames={setGames}
                 tempGames={tempGames}
-                loading={loading}
+                loading={isLoading}
               />
             }
           />

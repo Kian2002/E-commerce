@@ -34,6 +34,7 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
             }}
           >
             <img
+              loading="lazy"
               src={game.background_image}
               alt=""
               className={styles["card__img"]}
