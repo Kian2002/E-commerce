@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useContext } from "react";
 import { Games } from "../data";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles/Item.module.css";
@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CartContext } from "../context/CartContext";
 
 type Props = {
   games: Games[];
@@ -13,6 +14,9 @@ type Props = {
 };
 
 const Item: React.FC<Props> = ({ games, setGames }) => {
+  const cartCtx = useContext(CartContext);
+  const { cart, addToCart } = cartCtx;
+
   const navigate = useNavigate();
   const params = useParams();
   const gameId = params.gameId;
@@ -97,7 +101,11 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
               </div>
 
               <div className={styles["price"]}>
-                <button>Add to cart +</button>
+                <button onClick={() => addToCart(game)}>
+                  {cart.find((item) => item.id === game.id)
+                    ? "Added"
+                    : "Add to cart +"}
+                </button>
                 <h2>${game.price}</h2>
               </div>
             </div>
