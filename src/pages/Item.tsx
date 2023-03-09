@@ -1,10 +1,11 @@
 import React, { Dispatch, SetStateAction, useEffect } from "react";
 import { Games } from "../data";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles/Item.module.css";
 import { useQuery } from "react-query";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {
   games: Games[];
@@ -12,6 +13,7 @@ type Props = {
 };
 
 const Item: React.FC<Props> = ({ games, setGames }) => {
+  const navigate = useNavigate();
   const params = useParams();
   const gameId = params.gameId;
   const game = games.find((game) => game.id.toString() === gameId);
@@ -47,6 +49,10 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
     }
   }, [gameId, isLoading]);
 
+  const clickHandler = () => {
+    navigate("/store");
+  };
+
   return (
     <>
       {game.developers === undefined ? (
@@ -54,7 +60,12 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
       ) : (
         <div className={styles["container"]}>
           <div className={styles["header"]}>
-            <button className={styles["back-button"]}>{"<"}---Back</button>
+            <button className={styles["back-button"]} onClick={clickHandler}>
+              <i>
+                <FontAwesomeIcon icon={["fas", "arrow-left"]} size={"lg"} />
+              </i>{" "}
+              Back
+            </button>
             <h1 className={styles["title"]}>{game.name}</h1>
           </div>
 
