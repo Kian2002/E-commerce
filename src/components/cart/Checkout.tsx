@@ -23,7 +23,7 @@ const Checkout: React.FC<Props> = ({ cart }) => {
   return (
     <>
       <button
-        className={styles["cart-footer_checkout"]}
+        className={styles["cart-footer__checkout"]}
         onClick={checkoutHandler}
       >
         Checkout
