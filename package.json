@@ -15,6 +15,8 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/react-fontawesome": "^1.6.5",
+    "axios": "^1.3.4",
+    "backend": "file:backend",
     "framer-motion": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

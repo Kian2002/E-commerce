@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Cart.module.css";
 import { CartContext } from "../../context/CartContext";
+import Checkout from "./Checkout";
 
-const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
-  onHandleCloseCart,
-}) => {
+type Props = {
+  onHandleCloseCart: () => void;
+};
+
+const Cart: React.FC<Props> = ({ onHandleCloseCart }) => {
   const { cart, removeFromCart } = useContext(CartContext);
 
   const [total, setTotal] = useState(0);
@@ -54,12 +57,7 @@ const Cart: React.FC<{ onHandleCloseCart: () => void }> = ({
         </div>
         <div className={styles["cart-footer"]}>
           <p className={styles["cart-footer__total"]}>Total: {total}</p>
-          <button
-            className={styles["cart-footer__checkout"]}
-            onClick={onHandleCloseCart}
-          >
-            Checkout
-          </button>
+          <Checkout cart={cart} />
         </div>
       </div>
     </div>,
