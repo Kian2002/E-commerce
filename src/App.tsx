@@ -29,9 +29,9 @@ function App() {
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
+          <Route path="E-commerce" element={<Home />} />
           <Route
-            path="/store"
+            path="E-commerce/store"
             element={
               <Store
                 games={games}
@@ -42,7 +42,7 @@ function App() {
             }
           />
           <Route
-            path="/store/item/:gameId"
+            path="E-commerce/store/item/:gameId"
             element={<Item games={games} setGames={setGames} />}
           />
           <Route path="*" element={<ErrorPage />} />

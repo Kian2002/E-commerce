@@ -54,7 +54,7 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
   }, [gameId, isLoading]);
 
   const clickHandler = () => {
-    navigate("/store");
+    navigate("/E-commerce/store");
   };
 
   return (
