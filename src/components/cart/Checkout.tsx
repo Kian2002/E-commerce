@@ -18,7 +18,7 @@ const Checkout: React.FC<Props> = ({ cart }) => {
         window.location.href = res.data.url;
       })
       .catch((err) => {
-        console.log(err);
+        alert(err);
       });
   };
   return (

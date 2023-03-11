@@ -6,6 +6,10 @@ const URL = "https://github.com/Kian2002/E-commerce";
 const router = express.Router();
 
 router.post("/create-checkout-session", async (req, res) => {
+  if (!req.body.cart || req.body.cart.length === 0) {
+    return res.status(400).send({ message: "Cart is empty" });
+  }
+
   const line_items = req.body.cart.map((item) => {
     return {
       price_data: {
