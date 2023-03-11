@@ -9,8 +9,9 @@ type Props = {
 
 const Checkout: React.FC<Props> = ({ cart }) => {
   const checkoutHandler = () => {
+    const URL = import.meta.env.VITE_URL;
     axios
-      .post("http://localhost:3000/api/stripe/create-checkout-session", {
+      .post(`${URL}/api/stripe/create-checkout-session`, {
         cart,
       })
       .then((res) => {
