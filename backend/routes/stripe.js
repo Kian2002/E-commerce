@@ -1,7 +1,7 @@
 const express = require("express");
 const stripe = require("stripe")("sk_test_Hrs6SAopgFPF0bZXSN3f6ELN");
 
-const URL = "http://localhost:5173";
+const URL = "https://github.com/Kian2002/E-commerce";
 
 const router = express.Router();
 
