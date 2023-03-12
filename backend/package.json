@@ -2,11 +2,9 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "/backend/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
-    "build": "npm install"  
+    "start": "node index.js" 
   },
   "author": "",
   "license": "ISC",
