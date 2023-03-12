@@ -16,7 +16,7 @@ const Success = () => {
   }, []);
 
   if (redirectTime === 0) {
-    navigate("/E-commerce");
+    navigate("/store");
   }
 
   return (
