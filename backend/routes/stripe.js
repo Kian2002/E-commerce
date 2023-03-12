@@ -29,6 +29,7 @@ router.post("/create-checkout-session", async (req, res) => {
 
     res.send({ url: session.url });
   } catch (err) {
+    console.error(err);
     if (!req.body.cart || req.body.cart.length === 0) {
       return res.status(400).send({ message: "Cart is empty" });
     }
