@@ -105,6 +105,15 @@
     color: #000;
 }
 
+.success {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 1rem;
+}
+
+
 @keyframes slide-in {
     0% {
         transform: translateX(100%);

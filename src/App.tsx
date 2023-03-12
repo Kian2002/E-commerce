@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import getData, { Games } from "./data";
 import { useQuery } from "react-query";
+import Success from "./components/cart/Success";
 
 function App() {
   const location = useLocation();
@@ -45,6 +46,7 @@ function App() {
             path="E-commerce/store/item/:gameId"
             element={<Item games={games} setGames={setGames} />}
           />
+          <Route path="E-commerce/success" element={<Success />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AnimatePresence>
