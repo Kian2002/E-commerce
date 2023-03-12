@@ -18,12 +18,12 @@ const Navbar = () => {
     <nav className={styles["navbar"]}>
       <ul className={styles["navbar__list"]}>
         <li>
-          <Link className={styles["navbar__list__item"]} to="/E-commerce">
+          <Link className={styles["navbar__list__item"]} to="/">
             Home
           </Link>
         </li>
         <li>
-          <Link className={styles["navbar__list__item"]} to="/E-commerce/store">
+          <Link className={styles["navbar__list__item"]} to="store">
             Store
           </Link>
         </li>

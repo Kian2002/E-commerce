@@ -30,9 +30,9 @@ function App() {
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
-          <Route path="E-commerce" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route
-            path="E-commerce/store"
+            path="/store"
             element={
               <Store
                 games={games}
@@ -43,10 +43,10 @@ function App() {
             }
           />
           <Route
-            path="E-commerce/store/item/:gameId"
+            path="/store/item/:gameId"
             element={<Item games={games} setGames={setGames} />}
           />
-          <Route path="E-commerce/success" element={<Success />} />
+          <Route path="/success" element={<Success />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </AnimatePresence>

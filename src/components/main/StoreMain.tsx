@@ -12,7 +12,7 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
   const { cart, addToCart } = useContext(CartContext);
   const navigate = useNavigate();
   const clickHandler = (game: Games) => {
-    navigate(`/E-commerce/store/item/${game.id}`);
+    navigate(`/store/item/${game.id}`);
   };
 
   return (
