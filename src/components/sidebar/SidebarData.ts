@@ -38,37 +38,37 @@ export const platforms: Platform[] = [
 export const genres: Genre[] = [
   {
     name: "Action",
-    src: "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg",
+    src: "src/assets/sidebar/action.jpeg",
     alt: "Action Games Image"
   },
   {
     name: "Adventure",
-    src: "https://media.rawg.io/media/games/511/5118aff5091cb3efec399c808f8c598f.jpg",
+    src: "src/assets/sidebar/adventure.jpeg",
     alt: "Adventure Games Image"
   },
   {
     name: "RPG",
-    src:"https://media.rawg.io/media/games/d1a/d1a2e99ade53494c6330a0ed945fe823.jpg",
+    src:"src/assets/sidebar/rpg.jpeg",
     alt: "Role Playing Games Image"
   },
   {
     name: "Strategy",
-    src: "https://media.rawg.io/media/games/6bc/6bc79f5bc023b1e6938f6eaf9926f073.jpg",
+    src: "src/assets/sidebar/strategy.jpeg",
     alt: "Strategy Games Image"
   },
   {
     name: "Simulation",
-    src: "https://media.rawg.io/media/games/a44/a444a7628bdb49b24d06a7672f805814.jpg",
+    src: "src/assets/sidebar/simulation.jpeg",
     alt: "Simulation Games Image"
   },
   {
     name: "Sports",
-    src: "https://media.rawg.io/media/games/8c7/8c77cb878b8cafe0b5ee5b21d488393b.jpg",
+    src: "src/assets/sidebar/sports.jpeg",
     alt: "Sports Games Image"
   },
   {
     name: "Racing",
-    src: "https://media.rawg.io/media/games/786/7863e587bac630de82fca50d799236a9.jpg",
+    src: "src/assets/sidebar/racing.jpeg",
     alt: "Racing Games Image"
   }
 ];
