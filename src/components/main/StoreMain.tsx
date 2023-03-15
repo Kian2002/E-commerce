@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Games } from "../../data";
 import styles from "./StoreMain.module.css";
 import { CartContext } from "../../context/CartContext";

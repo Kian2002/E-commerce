@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import Navbar from "../components/navbar/Navbar";
 import Hero from "../components/hero/Hero";
 import styles from "./styles/Home.module.css";
 import { motion } from "framer-motion";

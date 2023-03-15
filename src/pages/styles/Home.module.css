@@ -6,6 +6,6 @@
     position: fixed;
     right: 0;
     z-index: -1;
-    background: url(../../../public/assets/bgo.gif) fixed no-repeat;
+    background: url(https://res.cloudinary.com/dp8ne3hkc/image/upload/q_100/v1678865620/bg_u027j8.gif) fixed no-repeat;
     background-size: cover;
 }

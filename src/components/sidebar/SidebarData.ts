@@ -36,37 +36,37 @@ export const platforms: Platform[] = [
 export const genres: Genre[] = [
   {
     name: "Action",
-    src: "/assets/sidebar/action.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866250/action_b1wuf0.jpg",
     alt: "Action Games Image"
   },
   {
     name: "Adventure",
-    src: "/assets/sidebar/adventure.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678865971/adventure_zqchnx.jpg",
     alt: "Adventure Games Image"
   },
   {
     name: "RPG",
-    src:"/assets/sidebar/rpg.jpeg",
+    src:"https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866413/rpg_czg1py.jpg",
     alt: "Role Playing Games Image"
   },
   {
     name: "Strategy",
-    src: "/assets/sidebar/strategy.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866405/strategy_r68oxn.jpg",
     alt: "Strategy Games Image"
   },
   {
     name: "Simulation",
-    src: "/assets/sidebar/simulation.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866261/simulation_ljdqcu.jpg",
     alt: "Simulation Games Image"
   },
   {
     name: "Sports",
-    src: "/assets/sidebar/sports.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866401/sports_pwidu2.jpg",
     alt: "Sports Games Image"
   },
   {
     name: "Racing",
-    src: "/assets/sidebar/racing.jpeg",
+    src: "https://res.cloudinary.com/dp8ne3hkc/image/upload/q_10/v1678866421/racing_jkzzy9.jpg",
     alt: "Racing Games Image"
   }
 ];
