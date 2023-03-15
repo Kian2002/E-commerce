@@ -1,4 +1,4 @@
-import styles from "../../components/sidebar/Sidebar.module.css";
+import styles from "../../../src/components/sidebar/Sidebar.module.css";
 
 export const Playstation = () => {
   return (

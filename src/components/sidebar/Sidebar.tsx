@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, MouseEvent } from "react";
 import styles from "./Sidebar.module.css";
 import { Games } from "../../data";
 import { platforms, genres } from "./SidebarData";
-import { ResetLogo } from "../../assets/logos/ResetLogo";
+import { ResetLogo } from "../../../public/assets/logos/ResetLogo";
 
 interface Props {
   setGames: Dispatch<SetStateAction<Games[]>>;

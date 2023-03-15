@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CartContext } from "../context/CartContext";
-import LeftArrow from "../assets/logos/LeftArrow";
+import LeftArrow from "../../public/assets/logos/LeftArrow";
 
 type Props = {
   games: Games[];
