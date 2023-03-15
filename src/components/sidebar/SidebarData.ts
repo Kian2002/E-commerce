@@ -1,9 +1,11 @@
-import { IconProp, SizeProp } from "@fortawesome/fontawesome-svg-core";
+import { Windows } from "../../assets/logos/Windows";
+import { Playstation } from "../../assets/logos/Playstation";
+import { Xbox } from "../../assets/logos/Xbox";
+import { Switch } from "../../assets/logos/Switch";
 
 type Platform = {
   name: string;
-  icon: IconProp;
-  size: SizeProp;
+  svg: () => JSX.Element;
 };
 
 type Genre = {
@@ -15,23 +17,19 @@ type Genre = {
 export const platforms: Platform[] = [
   {
     name: "PC",
-    icon: ["fab", "windows"],
-    size: "lg"
+    svg: Windows
   },
   {
     name: "PlayStation 4",
-    icon: ["fab", "playstation"],
-    size: "lg"
+    svg: Playstation
   },
   {
     name: "Xbox One",
-    icon: ["fab", "xbox"],
-    size: "lg"
+    svg: Xbox
   },
   {
     name: "Nintendo Switch",
-    icon: ["fas", "gamepad"],
-    size: "lg"
+    svg: Switch
   },
 ];
 

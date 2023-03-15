@@ -1,12 +1,8 @@
 import React, { Dispatch, SetStateAction, MouseEvent } from "react";
 import styles from "./Sidebar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { Games } from "../../data";
 import { platforms, genres } from "./SidebarData";
-library.add(fab, fas);
+import { ResetLogo } from "../../assets/logos/ResetLogo";
 
 interface Props {
   setGames: Dispatch<SetStateAction<Games[]>>;
@@ -45,9 +41,7 @@ const Sidebar: React.FC<Props> = ({ setGames, tempGames }) => {
         <h1 className={styles["sidebar__title"]}>Platforms</h1>
         <div className={styles["sidebar__list"]}>
           <button className={styles["sidebar__item"]} onClick={handleReset}>
-            <span className={styles["logo"]}>
-              <FontAwesomeIcon icon={["fas", "circle"]} color={"red"} />
-            </span>
+            <ResetLogo />
             <span>Reset Filters</span>
           </button>
 
@@ -57,9 +51,7 @@ const Sidebar: React.FC<Props> = ({ setGames, tempGames }) => {
               onClick={handleFilterPlatform}
               key={platform.name}
             >
-              <span className={styles["logo"]}>
-                {<FontAwesomeIcon icon={platform.icon} size={platform.size} />}
-              </span>
+              <span>{platform.svg()}</span>
               <span>{platform.name}</span>
             </button>
           ))}

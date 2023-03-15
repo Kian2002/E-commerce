@@ -5,8 +5,8 @@ import styles from "./styles/Item.module.css";
 import { useQuery } from "react-query";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CartContext } from "../context/CartContext";
+import LeftArrow from "../assets/logos/LeftArrow";
 
 type Props = {
   games: Games[];
@@ -65,10 +65,7 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
         <div className={styles["container"]}>
           <div className={styles["header"]}>
             <button className={styles["back-button"]} onClick={clickHandler}>
-              <i>
-                <FontAwesomeIcon icon={["fas", "arrow-left"]} size={"lg"} />
-              </i>{" "}
-              Back
+              <LeftArrow />
             </button>
             <h1 className={styles["title"]}>{game.name}</h1>
           </div>
