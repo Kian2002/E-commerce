@@ -56,27 +56,3 @@ export type Games = {
   short_screenshots: Short_Screenshots[];
   description: string;
 };
-
-const API_KEY = import.meta.env.VITE_API_KEY;
-const PAGE_NUMBER = Math.ceil(Math.random()* 10);
-const API_URL = `https://api.rawg.io/api/games?key=${API_KEY}&page=${PAGE_NUMBER}&page_size=40`;
-
-const getData = async () => {
-  const response = await fetch(API_URL);
-  const data = await response.json();
-  const storeFilter: Games[] = data.results.map((game: Games) => {
-    return {
-      id: game.id,
-      name: game.name,
-      price: Math.floor(Math.random() * 100),
-      platforms: game.platforms,
-      genres: game.genres,
-      background_image: game.background_image,
-      short_screenshots: game.short_screenshots,
-      released: game.released
-    };
-  });
-  return storeFilter;
-};
-
-export default getData;

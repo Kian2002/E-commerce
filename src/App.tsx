@@ -8,13 +8,21 @@ import Navbar from "./components/navbar/Navbar";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import getData, { Games } from "./data";
+import { Games } from "./data";
 import { useQuery } from "react-query";
 import Success from "./components/cart/Success";
+import axios from "axios";
 
 function App() {
   const location = useLocation();
-  const { data, isLoading } = useQuery("games", getData);
+
+  const { data, isLoading } = useQuery("games", async () => {
+    const { data } = await axios.get(
+      "https://ecom-backend.cyclic.app/api/rawg/games"
+    );
+    return data;
+  });
+
   const [games, setGames] = useState<Games[]>([]);
   const [tempGames, setTempGames] = useState<Games[]>([]);
 
