@@ -2,11 +2,11 @@ import React, { Dispatch, SetStateAction, useEffect, useContext } from "react";
 import { Games } from "../data";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles/Item.module.css";
-import { useQuery } from "react-query";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CartContext } from "../context/CartContext";
 import LeftArrow from "../../public/assets/logos/LeftArrow";
+import axios from "axios";
 
 type Props = {
   games: Games[];
@@ -18,40 +18,32 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
   const { cart, addToCart } = cartCtx;
 
   const navigate = useNavigate();
-  const params = useParams();
-  const gameId = params.gameId;
+  const { gameId } = useParams();
+
   const game = games.find((game) => game.id.toString() === gameId);
   const gameIndex = games.findIndex((game) => game.id.toString() === gameId);
 
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const { data, isLoading } = useQuery("singleGame", () => {
-    return fetch(`https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`).then(
-      (res) => res.json()
-    );
-  });
 
-  if (game === undefined) {
-    return <h1>Game Not Found</h1>;
-  }
+  const getGame = async () => {
+    const response = await axios.get(
+      `https://api.rawg.io/api/games/${gameId}?key=${API_KEY}`
+    );
+    const game = response.data;
+    setGames((prevGames) => {
+      const updatedGames = [...prevGames];
+      updatedGames[gameIndex] = {
+        ...updatedGames[gameIndex],
+        developers: game.developers,
+        publishers: game.publishers,
+      };
+      return updatedGames;
+    });
+  };
 
   useEffect(() => {
-    if (data) {
-      setGames((prevGames) => {
-        return prevGames.map((game, index) => {
-          if (index === gameIndex) {
-            return {
-              ...game,
-              description: data.description_raw,
-              link: data.website,
-              developers: data.developers,
-              publishers: data.publishers,
-            };
-          }
-          return game;
-        });
-      });
-    }
-  }, [gameId, isLoading]);
+    getGame();
+  }, [game]);
 
   const clickHandler = () => {
     navigate("/store");
@@ -59,7 +51,7 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
 
   return (
     <>
-      {game.developers === undefined ? (
+      {!game?.developers ? (
         <h1>Loading...</h1>
       ) : (
         <div className={styles["container"]}>
