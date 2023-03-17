@@ -29,7 +29,7 @@ const Store: React.FC<Props> = ({ games, setGames, tempGames, loading }) => {
       }}
     >
       <Sidebar setGames={setGames} tempGames={tempGames} />
-      {loading ? <h1>Loading...</h1> : <StoreMain games={games} />}
+      <StoreMain games={games} loading={loading} />
     </motion.div>
   );
 };

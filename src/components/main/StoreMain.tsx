@@ -3,12 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { Games } from "../../data";
 import styles from "./StoreMain.module.css";
 import { CartContext } from "../../context/CartContext";
+import Loader from "../../utils/Loader";
 
 interface Props {
   games: Games[];
+  loading: boolean;
 }
 
-const StoreMain: React.FC<Props> = ({ games }: Props) => {
+const StoreMain: React.FC<Props> = ({ games, loading }) => {
   const { cart, addToCart } = useContext(CartContext);
   const navigate = useNavigate();
   const clickHandler = (game: Games) => {
@@ -25,6 +27,7 @@ const StoreMain: React.FC<Props> = ({ games }: Props) => {
       </div>
 
       <div className={styles["card-container"]}>
+        {loading && <Loader />}
         {games.map((game) => (
           <div
             className={styles["card"]}

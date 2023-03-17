@@ -7,6 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 import { CartContext } from "../context/CartContext";
 import LeftArrow from "../../public/assets/logos/LeftArrow";
 import axios from "axios";
+import Loader from "../utils/Loader";
 
 type Props = {
   games: Games[];
@@ -52,15 +53,13 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
   };
 
   if (!game) {
-    setTimeout(() => {
-      navigate("/store");
-    }, 4000);
+    return <Loader />;
   }
 
   return (
     <>
       {!game?.developers ? (
-        <h1>Loading...</h1>
+        <Loader />
       ) : (
         <div className={styles["container"]}>
           <div className={styles["header"]}>
