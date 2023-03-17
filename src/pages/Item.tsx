@@ -36,6 +36,8 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
         ...updatedGames[gameIndex],
         developers: game.developers,
         publishers: game.publishers,
+        link: game.website,
+        description: game.description_raw,
       };
       return updatedGames;
     });
@@ -48,6 +50,12 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
   const clickHandler = () => {
     navigate("/store");
   };
+
+  if (!game) {
+    setTimeout(() => {
+      navigate("/store");
+    }, 4000);
+  }
 
   return (
     <>
