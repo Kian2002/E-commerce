@@ -2,7 +2,7 @@ import React, { Dispatch, SetStateAction, MouseEvent } from "react";
 import styles from "./Sidebar.module.css";
 import { Games } from "../../types";
 import { platforms, genres } from "./SidebarData";
-import { ResetLogo } from "../../../public/assets/logos/ResetLogo";
+import { ResetLogo } from "../../assets";
 
 interface Props {
   setGames: Dispatch<SetStateAction<Games[]>>;
@@ -51,7 +51,7 @@ const Sidebar: React.FC<Props> = ({ setGames, tempGames }) => {
               onClick={handleFilterPlatform}
               key={platform.name}
             >
-              <span>{platform.svg()}</span>
+              <span>{<platform.svg />}</span>
               <span>{platform.name}</span>
             </button>
           ))}

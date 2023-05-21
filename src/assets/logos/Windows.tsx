@@ -1,6 +1,6 @@
 import styles from "../../../src/components/sidebar/Sidebar.module.css";
 
-export const Windows = () => {
+const Windows = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +16,5 @@ export const Windows = () => {
     </svg>
   );
 };
+
+export default Windows;

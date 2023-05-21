@@ -5,7 +5,7 @@ import styles from "./styles/Item.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { CartContext } from "../context/CartContext";
-import LeftArrow from "../../public/assets/logos/LeftArrow";
+import { LeftArrow } from "../assets";
 import axios from "axios";
 import Loader from "../utils/Loader";
 

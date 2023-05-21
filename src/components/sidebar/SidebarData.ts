@@ -1,7 +1,4 @@
-import { Windows } from "../../../public/assets/logos/Windows";
-import { Playstation } from "../../../public/assets/logos/Playstation";
-import { Xbox } from "../../../public/assets/logos/Xbox";
-import { Switch } from "../../../public/assets/logos/Switch";
+import { Windows, Playstation, Xbox, Nintendo } from "../../assets";
 
 type Platform = {
   name: string;
@@ -29,7 +26,7 @@ export const platforms: Platform[] = [
   },
   {
     name: "Nintendo Switch",
-    svg: Switch
+    svg: Nintendo
   },
 ];
 
