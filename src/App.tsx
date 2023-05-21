@@ -35,29 +35,33 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/store"
-            element={
-              <Store
-                games={games}
-                setGames={setGames}
-                tempGames={tempGames}
-                loading={isLoading}
-              />
-            }
-          />
-          <Route
-            path="/store/item/:gameId"
-            element={<Item games={games} setGames={setGames} />}
-          />
-          <Route path="/success" element={<Success />} />
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </AnimatePresence>
+      <header>
+        <Navbar />
+      </header>
+      <main>
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/store"
+              element={
+                <Store
+                  games={games}
+                  setGames={setGames}
+                  tempGames={tempGames}
+                  loading={isLoading}
+                />
+              }
+            />
+            <Route
+              path="/store/item/:gameId"
+              element={<Item games={games} setGames={setGames} />}
+            />
+            <Route path="/success" element={<Success />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
     </>
   );
 }

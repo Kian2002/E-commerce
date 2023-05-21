@@ -16,6 +16,8 @@ const Navbar = () => {
 
   return (
     <nav className={styles["navbar"]}>
+      <h1 className={styles["navbar__logo"]}>GameStore</h1>
+
       <ul className={styles["navbar__list"]}>
         <li>
           <Link className={styles["navbar__list__item"]} to="/">
