@@ -4,12 +4,12 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    width: 500px;
-    height: 500px;
     color: #FFF;
     border-radius: 50px;
     backdrop-filter: blur(4px);
     margin-top: 10rem;
+    text-align: center;
+    flex-wrap: wrap;
 }
 
 .hero__heading {
@@ -20,7 +20,27 @@
 
 .hero__p {
     text-align: center;
-    width: 500px;
     padding: 1rem;
     font-size: 1.5rem;
+    max-width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+    .hero__heading {
+        font-size: 2rem;
+    }
+
+    .hero__p {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero__heading {
+        font-size: 1.5rem;
+    }
+
+    .hero__p {
+        font-size: 1rem;
+    }
 }
