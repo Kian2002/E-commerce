@@ -8,7 +8,7 @@ import Navbar from "./components/navbar/Navbar";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Games } from "./data";
+import { Games } from "./types";
 import { useQuery } from "react-query";
 import Success from "./components/cart/Success";
 import axios from "axios";
