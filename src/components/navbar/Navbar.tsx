@@ -2,6 +2,7 @@ import { useState } from "react";
 import Cart from "../cart/Cart";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
+import MobileMenu from "./MobileMenu";
 
 const Navbar = () => {
   const [cartDisplayed, setCartDisplayed] = useState(false);
@@ -33,6 +34,8 @@ const Navbar = () => {
           Cart
         </li>
       </ul>
+
+      <MobileMenu />
       {cartDisplayed && <Cart onHandleCloseCart={handleCloseCart} />}
     </nav>
   );
