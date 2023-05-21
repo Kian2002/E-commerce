@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Cart.module.css";
-import { Games } from "../../data";
+import { Games } from "../../types";
 import axios from "axios";
 
 type Props = {

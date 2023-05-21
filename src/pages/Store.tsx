@@ -3,7 +3,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 import StoreMain from "../components/main/StoreMain";
 import styles from "./styles/Store.module.css";
 import { motion } from "framer-motion";
-import { Games } from "../data";
+import { Games } from "../types";
 
 interface Props {
   games: Games[];

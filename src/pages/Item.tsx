@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useContext } from "react";
-import { Games } from "../data";
+import { Games } from "../types";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./styles/Item.module.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";

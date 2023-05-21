@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { Games } from "../data";
+import { Games } from "../types";
 
 type CartContextType = {
   cart: Games[];

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Games } from "../../data";
+import { Games } from "../../types";
 import styles from "./StoreMain.module.css";
 import { CartContext } from "../../context/CartContext";
 import Loader from "../../utils/Loader";

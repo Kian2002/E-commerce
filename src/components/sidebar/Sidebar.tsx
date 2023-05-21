@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction, MouseEvent } from "react";
 import styles from "./Sidebar.module.css";
-import { Games } from "../../data";
+import { Games } from "../../types";
 import { platforms, genres } from "./SidebarData";
 import { ResetLogo } from "../../../public/assets/logos/ResetLogo";
 
