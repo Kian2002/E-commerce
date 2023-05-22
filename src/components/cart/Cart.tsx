@@ -43,18 +43,18 @@ const Cart: React.FC<Props> = ({ onHandleCloseCart }) => {
         <div className={styles["cart-items"]}>
           {cart.map((item) => {
             return (
-              <button className={styles["cart-item"]} key={item.id}>
+              <div className={styles["cart-item"]} key={item.id}>
                 <h3>{item.name}</h3>
                 <div className={styles["cart-item__div"]}>
                   <p>${item.price}</p>
                   <button onClick={() => removeFromCart(item)}>X</button>
                 </div>
-              </button>
+              </div>
             );
           })}
         </div>
         <div className={styles["cart-footer"]}>
-          <p className={styles["cart-footer__total"]}>Total: {total}</p>
+          <p className={styles["cart-footer__total"]}>Total: ${total}</p>
           <Checkout cart={cart} />
         </div>
       </div>
