@@ -6,6 +6,7 @@
     position: sticky;
     top: 0;
     margin-bottom: 2rem;
+    display: none;
 }
 
 .sidebar__menu {
@@ -65,4 +66,10 @@
     border-radius: .6rem;
     -o-object-fit: cover;
     object-fit: cover;
+}
+
+@media screen and (min-width: 480px) {
+    .sidebar {
+        display: block;
+    }
 }
