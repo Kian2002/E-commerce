@@ -22,7 +22,7 @@ const StoreMain: React.FC<Props> = ({ games, loading }) => {
       <div>
         <h1 className={styles["title"]}>New and trending</h1>
         <h2 className={styles["sub-title"]}>
-          Based on plater counts and release date
+          Based on player counts and release date
         </h2>
       </div>
 
@@ -36,30 +36,35 @@ const StoreMain: React.FC<Props> = ({ games, loading }) => {
               clickHandler(game);
             }}
           >
-            <img
-              loading="lazy"
-              src={game.background_image}
-              alt=""
-              className={styles["card__img"]}
-            />
-
-            <div className={styles["card__info"]}>
-              <button
-                type="button"
-                className={styles["card__info__button"]}
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  addToCart(game);
-                }}
-              >
-                {cart.find((item) => item.id === game.id)
-                  ? "Added"
-                  : "Add to cart +"}
-              </button>
-              <h3>${game.price}</h3>
+            <div className={styles["image__container"]}>
+              <img
+                loading="lazy"
+                src={game.background_image}
+                alt=""
+                className={styles["card__img"]}
+              />
             </div>
-            <h2 className={styles["card__name"]}>{game.name}</h2>
+
+            <div className={styles["card__info__wrapper"]}>
+              <div className={styles["card__info"]}>
+                <button
+                  type="button"
+                  className={styles["card__info__button"]}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    addToCart(game);
+                  }}
+                >
+                  {cart.find((item) => item.id === game.id)
+                    ? "Added"
+                    : "Add to cart +"}
+                </button>
+                <h3>${game.price}</h3>
+              </div>
+
+              <h2 className={styles["card__name"]}>{game.name}</h2>
+            </div>
           </div>
         ))}
       </div>

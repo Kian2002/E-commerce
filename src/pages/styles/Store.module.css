@@ -1,15 +1,9 @@
 .store {
     display: flex;
-    height: 100%;
+    justify-content: center;
     width: 100%;
-    padding: 0 2rem;
-}
-
-
-
-.store> :last-child {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+    margin: 0 auto;
+    padding: 1.5rem;
+    max-width: 80rem;
+    overflow: hidden;
 }
