@@ -27,7 +27,12 @@ const Cart: React.FC<Props> = ({ onHandleCloseCart }) => {
 
   return ReactDOM.createPortal(
     <div className={styles["backdrop"]} onClick={onHandleCloseCart}>
-      <div className={styles["cart-wrapper"]}>
+      <div
+        className={styles["cart-wrapper"]}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
         <h1 className={styles["cart-heading"]}>
           {cart.length === 0
             ? "No Games Added"
@@ -42,14 +47,7 @@ const Cart: React.FC<Props> = ({ onHandleCloseCart }) => {
                 <h3>{item.name}</h3>
                 <div className={styles["cart-item__div"]}>
                   <p>${item.price}</p>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeFromCart(item);
-                    }}
-                  >
-                    X
-                  </button>
+                  <button onClick={() => removeFromCart(item)}>X</button>
                 </div>
               </button>
             );
