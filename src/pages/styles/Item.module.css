@@ -1,5 +1,8 @@
 .container {
     padding: 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    min-height: calc(100vh - 92px);
 }
 
 .back-button {
@@ -25,17 +28,17 @@
 .about-section {
     display: flex;
     justify-content: space-between;
-    align-items: space-between;
-    gap: 2rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .about-wrapper {
     display: flex;
     flex-direction: column;
-    background-color: #141414;
+    background-color: #242424;
     padding: 2rem;
     border-radius: 1rem;
-    height: 50vh;
+    height: 500px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     scrollbar-width: none;
@@ -47,7 +50,8 @@
 }
 
 .image-wrapper {
-    width: 70%;
+    flex-grow: 1;
+    margin-bottom: 3rem;
 }
 
 .carousel-image {
@@ -55,18 +59,21 @@
 }
 
 .about {
-    width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 2rem;
+    max-width: 20rem;
+    margin: 0 auto;
 }
 
 .price {
     display: flex;
     justify-content: space-between;
-    background-color: #141414;
+    background-color: #242424;
     padding: 1rem;
     border-radius: 1rem;
+    margin-bottom: 3rem;
 }
 
 .price button {
@@ -84,4 +91,46 @@
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+}
+
+@media screen and (max-width: 1276px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about {
+        max-width: 100%;
+    }
+
+    .about-wrapper {
+        margin-bottom: 1rem;
+    }
+
+    .image-wrapper {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .about-wrapper {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 478px) {
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .about-wrapper {
+        height: 300px;
+    }
+
+    .about-section {
+        font-size: medium
+    }
 }

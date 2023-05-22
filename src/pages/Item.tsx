@@ -45,8 +45,14 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
   };
 
   useEffect(() => {
-    getGame();
-  }, [game]);
+    const timer = setTimeout(() => {
+      getGame();
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [gameIndex]);
 
   const clickHandler = () => {
     navigate("/store");
@@ -95,15 +101,6 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
                   <p>{game.description}</p>
                 </div>
               </div>
-
-              <div className={styles["price"]}>
-                <button onClick={() => addToCart(game)}>
-                  {cart.find((item) => item.id === game.id)
-                    ? "Added"
-                    : "Add to cart +"}
-                </button>
-                <h2>${game.price}</h2>
-              </div>
             </div>
 
             <Carousel
@@ -111,6 +108,7 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
               autoPlay
               showThumbs={false}
               infiniteLoop
+              dynamicHeight={true}
             >
               {game.short_screenshots.map((screenshot) => (
                 <div key={screenshot.id}>
@@ -121,6 +119,15 @@ const Item: React.FC<Props> = ({ games, setGames }) => {
                 </div>
               ))}
             </Carousel>
+          </div>
+
+          <div className={styles["price"]}>
+            <button onClick={() => addToCart(game)}>
+              {cart.find((item) => item.id === game.id)
+                ? "Added"
+                : "Add to cart +"}
+            </button>
+            <h2>${game.price}</h2>
           </div>
         </div>
       )}
